@@ -41,4 +41,48 @@ func main() {
 	MIMEType, Ext, _ = opencrucible.DetectFileTypeMIME(rtf)
 	fmt.Println(MIMEType)
 	fmt.Println(Ext)
+	//Ninth test
+	odt, err := os.ReadFile("../test_file/test_file_odt.odt")
+	if err != nil {
+		panic(err)
+	}
+	MIMEType, Ext, _ = opencrucible.DetectFileType(odt)
+	fmt.Println(MIMEType)
+	fmt.Println(Ext)
+	MIMEType, Ext, _ = opencrucible.DetectFileTypeMIME(odt)
+	fmt.Println(MIMEType)
+	fmt.Println(Ext)
+	//Tenth test
+	docx, err := os.ReadFile("../test_file/test_file_docx.docx")
+	if err != nil {
+		panic(err)
+	}
+	MIMEType, Ext, _ = opencrucible.DetectFileType(docx)
+	fmt.Println(MIMEType)
+	fmt.Println(Ext)
+	MIMEType, Ext, _ = opencrucible.DetectFileTypeMIME(docx)
+	fmt.Println(MIMEType)
+	fmt.Println(Ext)
+	//Eleventh test
+	docx_ms, err := os.ReadFile("../test_file/test_file_docx_ms.docx")
+	if err != nil {
+		panic(err)
+	}
+	MIMEType, Ext, _ = opencrucible.DetectFileType(docx_ms)
+	fmt.Println(MIMEType)
+	fmt.Println(Ext)
+	MIMEType, Ext, _ = opencrucible.DetectFileTypeMIME(docx_ms)
+	fmt.Println(MIMEType)
+	fmt.Println(Ext)
+	//Twelfth test
+	pdf, err := os.ReadFile("../test_file/test_file_pdf.pdf")
+	if err != nil {
+		panic(err)
+	}
+	MIMEType, Ext, _ = opencrucible.DetectFileType(pdf)
+	fmt.Println(MIMEType)
+	fmt.Println(Ext)
+	MIMEType, Ext, _ = opencrucible.DetectFileTypeMIME(pdf)
+	fmt.Println(MIMEType)
+	fmt.Println(Ext)
 }

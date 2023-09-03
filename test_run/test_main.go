@@ -18,15 +18,27 @@ func main() {
 	fmt.Println(MIMEType)
 	fmt.Println(Ext)
 	//Third test
-	dat, err := os.ReadFile("../test_file/test_file_txt.txt")
+	txt, err := os.ReadFile("../test_file/test_file_txt.txt")
 	if err != nil {
 		panic(err)
 	}
-	MIMEType, Ext, _ = opencrucible.DetectFileType(dat)
+	MIMEType, Ext, _ = opencrucible.DetectFileType(txt)
 	fmt.Println(MIMEType)
 	fmt.Println(Ext)
 	//Fourth test
-	MIMEType, Ext, _ = opencrucible.DetectFileTypeMIME(dat)
+	MIMEType, Ext, _ = opencrucible.DetectFileTypeMIME(txt)
+	fmt.Println(MIMEType)
+	fmt.Println(Ext)
+	//Fifth test
+	rtf, err := os.ReadFile("../test_file/test_file_rtf.rtf")
+	if err != nil {
+		panic(err)
+	}
+	//Sixth and seventh test
+	MIMEType, Ext, _ = opencrucible.DetectFileType(rtf)
+	fmt.Println(MIMEType)
+	fmt.Println(Ext)
+	MIMEType, Ext, _ = opencrucible.DetectFileTypeMIME(rtf)
 	fmt.Println(MIMEType)
 	fmt.Println(Ext)
 }

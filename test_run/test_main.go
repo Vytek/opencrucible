@@ -85,4 +85,7 @@ func main() {
 	MIMEType, Ext, _ = opencrucible.DetectFileTypeMIME(pdf)
 	fmt.Println(MIMEType)
 	fmt.Println(Ext)
+	//** PARSERS **//
+	fmt.Println(opencrucible.TXTParseToString(txt))
+	fmt.Println(opencrucible.RTFParseToString(rtf))
 }

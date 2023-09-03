@@ -10,7 +10,7 @@ import (
 )
 
 // Version exposes the current package version.
-const Version = "0.0.1"
+const Version = "0.0.2"
 
 //Detects
 
@@ -50,4 +50,13 @@ func RTFParseToString(StreamToParse []byte) (string, error) {
 	}
 	rtf, err := cat.FromBytes(StreamToParse)
 	return rtf, err
+}
+
+func DOCXParseToString(StreamToParse []byte) (string, error) {
+	// If no StreamToDetect was given, return an error with a message.
+	if len(StreamToParse) == 0 {
+		return "", errors.New("stream to parse is empty")
+	}
+	docx, err := cat.FromBytes(StreamToParse)
+	return docx, err
 }

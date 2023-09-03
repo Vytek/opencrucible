@@ -60,3 +60,12 @@ func DOCXParseToString(StreamToParse []byte) (string, error) {
 	docx, err := cat.FromBytes(StreamToParse)
 	return docx, err
 }
+
+func ODTParseToString(StreamToParse []byte) (string, error) {
+	// If no StreamToDetect was given, return an error with a message.
+	if len(StreamToParse) == 0 {
+		return "", errors.New("stream to parse is empty")
+	}
+	odt, err := cat.FromBytes(StreamToParse)
+	return odt, err
+}

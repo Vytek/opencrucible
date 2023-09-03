@@ -88,4 +88,5 @@ func main() {
 	//** PARSERS **//
 	fmt.Println(opencrucible.TXTParseToString(txt))
 	fmt.Println(opencrucible.RTFParseToString(rtf))
+	fmt.Println(opencrucible.DOCXParseToString(docx))
 }

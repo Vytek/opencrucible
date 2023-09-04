@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/dslipak/pdf"
+	"github.com/Tulip-Data/pdf"
 	"github.com/gabriel-vasile/mimetype"
 	"github.com/h2non/filetype"
 	"github.com/lu4p/cat"
@@ -110,10 +110,12 @@ func PDFFileParseToString(FileToParse string) (string, error) {
 }
 
 func readPdf(path string) (string, error) {
-	r, err := pdf.Open(path)
+	f, r, err := pdf.Open(path)
 	if err != nil {
 		return "", err
 	}
+	// remember close file
+    defer f.Close()	
 	var buf bytes.Buffer
 	b, err := r.GetPlainText()
 	if err != nil {

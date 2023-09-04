@@ -1,7 +1,7 @@
 github.com/EndFirstCorp/peekingReader v0.0.0-20171012052444-257fb6f1a1a6 h1:t27CGFMv8DwGwqRPEa2VNof5I/aZwO6q2gfJhN8q0U4=
 github.com/EndFirstCorp/peekingReader v0.0.0-20171012052444-257fb6f1a1a6/go.mod h1:zpqkXxDsVfEIUZEWvT9yAo8OmRvSlRrcYQ3Zs8sSubA=
-github.com/dslipak/pdf v0.0.1 h1:Kz587BqrBPelWFrblnAFg4jXOY0R6JN3U7U6iwJ2Ae4=
-github.com/dslipak/pdf v0.0.1/go.mod h1:2L3SnkI9cQwnAS9gfPz2iUoLC0rUZwbucpbKi5R1mUo=
+github.com/Tulip-Data/pdf v1.0.2 h1:kp7wTAJl+Pq2EuBD9xlwDufzbKu2aQOmR8gDOMrsh0s=
+github.com/Tulip-Data/pdf v1.0.2/go.mod h1:px/4Told5tJtM+dxsmYTCdi58DkKLLGAHN4KxruWemQ=
 github.com/gabriel-vasile/mimetype v1.1.1/go.mod h1:6CDPel/o/3/s4+bp6kIbsWATq8pmgOisOPG40CJa6To=
 github.com/gabriel-vasile/mimetype v1.4.2 h1:w5qFW6JKBz9Y393Y4q372O9A7cUSequkh1Q7OhCmWKU=
 github.com/gabriel-vasile/mimetype v1.4.2/go.mod h1:zApsH/mKG4w07erKIaJPFiX0Tsq9BFQgN3qGY5GnNgA=

@@ -113,7 +113,11 @@ func TestDOCXMSFileParser(t *testing.T) {
 	}
 }
 
-func TestPDFMSFileParser(t *testing.T) {
+// This�is�a�test�file�to�test�library
+// 54 68 69 73 00 69 73 00 61 00 74 65 73 74 00 66 69 6C 65 00 74 6F 00 74 65 73 74 00 6C 69 62 72 61 72 79 20
+// Must be 20 NOT 00
+
+func TestPDFFileParser(t *testing.T) {
 	got, err := PDFFileParseToString("test_file/test_file_pdf.pdf")
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)

@@ -7,7 +7,7 @@ This code is forked from https://github.com/EndFirstCorp/doc2txt and extracts te
 Modify by: Vytek (9/4/2023)
 */
 
-package fileconversion
+package opencrucible
 
 import (
 	"bytes"

@@ -9,5 +9,7 @@ github.com/lu4p/cat v0.1.5 h1:s51Bp/ns3u6n+hjjL2F77ySY6j/GD5SJG/t6Ok4Y1S0=
 github.com/lu4p/cat v0.1.5/go.mod h1:G3YRyjSvBipqMBRZ2uLf1oRL3/eGGmuZf96m95Y4jRQ=
 github.com/vytek/opencrucible v0.0.2 h1:ChdnbzJrN8rKbGHcOI0gX9PMCNnMuxDRoilbm/jB6GE=
 github.com/vytek/opencrucible v0.0.2/go.mod h1:UzY5jtoCEJqiYfasOIQdvZ+e2m0w8DfAerwd6ImVr/w=
+github.com/vytek/opencrucible v0.0.3 h1:WGXlgA2fhHpDpnR23LNWCdftyuT8JPxwF+oj7eEidPQ=
+github.com/vytek/opencrucible v0.0.3/go.mod h1:UzY5jtoCEJqiYfasOIQdvZ+e2m0w8DfAerwd6ImVr/w=
 golang.org/x/net v0.14.0 h1:BONx9s002vGdD9umnlX1Po8vOZmrgH34qlHcD1MfK14=
 golang.org/x/net v0.14.0/go.mod h1:PpSgVXXLK0OxS0F31C1/tv6XNguvCrnXIDrFMspZIUI=

@@ -112,3 +112,15 @@ func TestDOCXMSFileParser(t *testing.T) {
 		t.Errorf("got %q, wanted %q", got, want)
 	}
 }
+
+func TestPDFMSFileParser(t *testing.T) {
+	got, err := PDFFileParserToString("test_file/test_file_pdf.pdf")
+	if err != nil {
+		t.Errorf("error loading file \n %s", err)
+	}
+	want := "This is a test file to test library\n"
+	t.Logf("Parsed: %s", got)
+	if got != want {
+		t.Errorf("got %q, wanted %q", got, want)
+	}
+}

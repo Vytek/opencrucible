@@ -14,7 +14,6 @@ import (
 	"archive/zip"
 	"bytes"
 	"encoding/xml"
-	"fmt"
 	"io"
 	"strings"
 )
@@ -120,7 +119,7 @@ func openWordFile(file io.ReaderAt, size int64) (string, error) {
 			if err != nil {
 				return "", err
 			}
-			return fmt.Sprintf("%s", doc), nil
+			return string(doc[:]), nil
 		}
 	}
 

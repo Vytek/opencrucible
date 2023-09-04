@@ -4,3 +4,12 @@ Detect type and extract text from different file type. Similar to Tika Project b
 [![Go Reference](https://pkg.go.dev/badge/github.com/vytek/opencrucible.svg)](https://pkg.go.dev/github.com/vytek/opencrucible)
 
 ![Logo OpenCrucible](https://github.com/Vytek/opencrucible/blob/main/doc/OpenCrucibleLogoResize.png)
+
+List of formats read:
+
+| Format  | FileParser |
+| ------------- | ------------- |
+| TXT | X  |
+| DOCX  | X  |
+| RTF | X |
+| ODT | X |

@@ -2,7 +2,7 @@ module github.com/vytek/test_run
 
 go 1.21.0
 
-require github.com/vytek/opencrucible v0.0.2
+require github.com/vytek/opencrucible v0.0.3
 
 require (
 	github.com/EndFirstCorp/peekingReader v0.0.0-20171012052444-257fb6f1a1a6 // indirect

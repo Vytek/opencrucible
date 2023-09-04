@@ -9,6 +9,7 @@ import (
 	"github.com/gabriel-vasile/mimetype"
 	"github.com/h2non/filetype"
 	"github.com/lu4p/cat"
+	"github.com/dslipak/pdf"
 )
 
 // Version exposes the current package version.
@@ -101,4 +102,23 @@ func ODTFileParserToString(FileToParse string) (string, error) {
 	}
 	got, err := ODTParseToString(odt)
 	return got, err
+}
+
+func PDFFileParserToString(FileToParse string) (string, error) {
+	content, err := readPdf(FileToParse)// Read local pdf file
+	return content, err
+}
+
+func readPdf(path string) (string, error) {
+	r, err := pdf.Open(path)
+	if err != nil {
+		return "", err
+	}
+	var buf bytes.Buffer
+    b, err := r.GetPlainText()
+    if err != nil {
+        return "", err
+    }
+    buf.ReadFrom(b)
+	return buf.String(), nil
 }

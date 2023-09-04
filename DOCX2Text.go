@@ -4,6 +4,8 @@ Copyright:  2018 Kleissner Investments s.r.o.
 Author:     Peter Kleissner
 
 This code is forked from https://github.com/guylaor/goword and extracts text from DOCX files.
+Project from: https://github.com/IntelligenceX/fileconversion
+Modify by: Vytek (9/3/2023)
 */
 
 package opencrucible
@@ -14,7 +16,6 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"strings"
 )
 
@@ -115,7 +116,7 @@ func openWordFile(file io.ReaderAt, size int64) (string, error) {
 		}
 		defer rc.Close()
 		if f.Name == "word/document.xml" {
-			doc, err := ioutil.ReadAll(rc)
+			doc, err := io.ReadAll(rc)
 			if err != nil {
 				return "", err
 			}

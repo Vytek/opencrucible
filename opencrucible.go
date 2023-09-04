@@ -58,11 +58,13 @@ func DOCXFileParseToString(FileToParse string) (string, error) {
 	// extract text from an XLSX file
 	file, err := os.Open(FileToParse)
 	if err != nil {
-		return "", errors.New(fmt.Sprintf("Error opening file: %s\n", err))
+		return "", fmt.Errorf("error opening file: %s", err)
 	}
 
 	defer file.Close()
 	stat, _ := file.Stat()
+	docx, err := DOCX2Text(file, stat.Size())
+	return docx, err
 }
 
 func ODTParseToString(StreamToParse []byte) (string, error) {

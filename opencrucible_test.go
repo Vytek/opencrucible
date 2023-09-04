@@ -52,3 +52,27 @@ func TestRTFarse(t *testing.T) {
 		t.Errorf("got %q, wanted %q", got, want)
 	}
 }
+
+func TestDOCXParse(t *testing.T) {
+	got, err := DOCXFileParseToString("test_file/test_file_docx.docx")
+	if err != nil {
+		panic(err)
+	}
+	want := "This is a test file to test library\n"
+	t.Logf("Parsed: %s", got)
+	if got != want {
+		t.Errorf("got %q, wanted %q", got, want)
+	}
+}
+
+func TestDOCXMSParse(t *testing.T) {
+	got, err := DOCXFileParseToString("test_file/test_file_docx_ms.docx")
+	if err != nil {
+		panic(err)
+	}
+	want := "This is a test file to test library\n"
+	t.Logf("Parsed: %s", got)
+	if got != want {
+		t.Errorf("got %q, wanted %q", got, want)
+	}
+}

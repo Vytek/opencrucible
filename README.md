@@ -7,9 +7,9 @@ Detect type and extract text from different file type. Similar to Tika Project b
 
 List of formats read:
 
-| Format  | FileParser |
-| ------------- | ------------- |
-| TXT | X  |
-| DOCX  | X  |
-| RTF | X |
-| ODT | X |
+| Format  | FileParser | MIME Type |
+| ------------- | ------------- | ------------- |
+| TXT | X  | text/plain; charset=utf-8 |
+| RTF | X | text/rtf |
+| ODT | X | application/vnd.oasis.opendocument.text |
+| DOCX  | X  | application/vnd.openxmlformats-officedocument.wordprocessingml.document |

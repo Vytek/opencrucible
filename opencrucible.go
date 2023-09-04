@@ -45,6 +45,15 @@ func TXTParseToString(StreamToParse []byte) (string, error) {
 	return txt, err
 }
 
+func TXTFileParserToString(FileToParse string) (string, error) {
+	txt, err := os.ReadFile(FileToParse)
+	if err != nil {
+		return "", fmt.Errorf("error opening file: %s", err)
+	}
+	got, err := TXTParseToString(txt)
+	return got, err
+}
+
 func RTFParseToString(StreamToParse []byte) (string, error) {
 	// If no StreamToDetect was given, return an error with a message.
 	if len(StreamToParse) == 0 {
@@ -54,8 +63,17 @@ func RTFParseToString(StreamToParse []byte) (string, error) {
 	return rtf, err
 }
 
+func RTFFileParserToString(FileToParse string) (string, error) {
+	rtf, err := os.ReadFile(FileToParse)
+	if err != nil {
+		return "", fmt.Errorf("error opening file: %s", err)
+	}
+	got, err := RTFParseToString(rtf)
+	return got, err
+}
+
 func DOCXFileParseToString(FileToParse string) (string, error) {
-	// extract text from an XLSX file
+	// extract text from an DOCX file
 	file, err := os.Open(FileToParse)
 	if err != nil {
 		return "", fmt.Errorf("error opening file: %s", err)
@@ -74,4 +92,13 @@ func ODTParseToString(StreamToParse []byte) (string, error) {
 	}
 	odt, err := cat.FromBytes(StreamToParse)
 	return odt, err
+}
+
+func ODTFileParserToString(FileToParse string) (string, error) {
+	odt, err := os.ReadFile(FileToParse)
+	if err != nil {
+		return "", fmt.Errorf("error opening file: %s", err)
+	}
+	got, err := ODTParseToString(odt)
+	return got, err
 }

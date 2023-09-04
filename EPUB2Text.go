@@ -14,7 +14,7 @@ This one was tested and works:
 Sample files via https://github.com/IDPF/epub3-samples/releases.
 */
 
-package fileconversion
+package opencrucible
 
 import (
 	"io"

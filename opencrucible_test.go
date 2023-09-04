@@ -22,7 +22,7 @@ func TestTXTParser(t *testing.T) {
 }
 
 func TestTXTFileParser(t *testing.T) {
-	got, err := TXTFileParserToString("test_file/test_file_txt.txt")
+	got, err := TXTFileParseToString("test_file/test_file_txt.txt")
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -50,7 +50,7 @@ func TestODTParser(t *testing.T) {
 }
 
 func TestODTFileParser(t *testing.T) {
-	got, err := ODTFileParserToString("test_file/test_file_odt.odt")
+	got, err := ODTFileParseToString("test_file/test_file_odt.odt")
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -78,7 +78,7 @@ func TestRTFParser(t *testing.T) {
 }
 
 func TestRTFFileParser(t *testing.T) {
-	got, err := RTFFileParserToString("test_file/test_file_rtf.rtf")
+	got, err := RTFFileParseToString("test_file/test_file_rtf.rtf")
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -114,7 +114,7 @@ func TestDOCXMSFileParser(t *testing.T) {
 }
 
 func TestPDFMSFileParser(t *testing.T) {
-	got, err := PDFFileParserToString("test_file/test_file_pdf.pdf")
+	got, err := PDFFileParseToString("test_file/test_file_pdf.pdf")
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}

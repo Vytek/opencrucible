@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/dslipak/pdf"
 	"github.com/gabriel-vasile/mimetype"
 	"github.com/h2non/filetype"
 	"github.com/lu4p/cat"
-	"github.com/dslipak/pdf"
 )
 
 // Version exposes the current package version.
@@ -46,7 +46,7 @@ func TXTParseToString(StreamToParse []byte) (string, error) {
 	return txt, err
 }
 
-func TXTFileParserToString(FileToParse string) (string, error) {
+func TXTFileParseToString(FileToParse string) (string, error) {
 	txt, err := os.ReadFile(FileToParse)
 	if err != nil {
 		return "", fmt.Errorf("error opening file: %s", err)
@@ -64,7 +64,7 @@ func RTFParseToString(StreamToParse []byte) (string, error) {
 	return rtf, err
 }
 
-func RTFFileParserToString(FileToParse string) (string, error) {
+func RTFFileParseToString(FileToParse string) (string, error) {
 	rtf, err := os.ReadFile(FileToParse)
 	if err != nil {
 		return "", fmt.Errorf("error opening file: %s", err)
@@ -95,7 +95,7 @@ func ODTParseToString(StreamToParse []byte) (string, error) {
 	return odt, err
 }
 
-func ODTFileParserToString(FileToParse string) (string, error) {
+func ODTFileParseToString(FileToParse string) (string, error) {
 	odt, err := os.ReadFile(FileToParse)
 	if err != nil {
 		return "", fmt.Errorf("error opening file: %s", err)
@@ -104,8 +104,8 @@ func ODTFileParserToString(FileToParse string) (string, error) {
 	return got, err
 }
 
-func PDFFileParserToString(FileToParse string) (string, error) {
-	content, err := readPdf(FileToParse)// Read local pdf file
+func PDFFileParseToString(FileToParse string) (string, error) {
+	content, err := readPdf(FileToParse) // Read local pdf file
 	return content, err
 }
 
@@ -115,10 +115,10 @@ func readPdf(path string) (string, error) {
 		return "", err
 	}
 	var buf bytes.Buffer
-    b, err := r.GetPlainText()
-    if err != nil {
-        return "", err
-    }
-    buf.ReadFrom(b)
+	b, err := r.GetPlainText()
+	if err != nil {
+		return "", err
+	}
+	buf.ReadFrom(b)
 	return buf.String(), nil
 }

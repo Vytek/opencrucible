@@ -11,10 +11,11 @@ import (
 	"github.com/gabriel-vasile/mimetype"
 	"github.com/h2non/filetype"
 	"github.com/lu4p/cat"
+	"github.com/flotzilla/pdf_parser"
 )
 
 // Version exposes the current package version.
-const Version = "0.0.3"
+const Version = "0.0.5"
 
 //Detects
 
@@ -131,3 +132,10 @@ func readPdf(path string) (string, error) {
 	return strings.Trim(string(replacedBytes), " "), nil
 }
 
+//Metadata
+
+//See: https://www.lazy-tech.net/project/pdf_metadata_parsing_golang
+func PDFFileMetadata(FileToParse string) (*pdf_parser.PdfInfo, error) {
+	pdf_parsed, errors := pdf_parser.ParsePdf(FileToParse)
+	return pdf_parsed, errors
+}

@@ -130,6 +130,22 @@ func TestPDFFileParser(t *testing.T) {
 	}
 }
 
+func TestPDFMetdata(t *testing.T) {
+	got, err := PDFFileMetadata(filepath.Join("test_file","test_file_pdf.pdf"))
+	if err != nil {
+		t.Errorf("error loading file \n %s", err)
+	}
+	want := "1.4"
+	t.Logf("Parsed: %s", got.PdfVersion)
+	t.Logf("Parsed: %s", got.GetAuthor())
+	t.Logf("Parsed: %s", got.GetDate())
+	t.Logf("Parsed: %s", got.GetCreator())
+	t.Logf("Parsed: %s", got.GetTitle())
+	if got.PdfVersion != want {
+		t.Errorf("got %q, wanted %q", got.PdfVersion, want)
+	}
+}
+
 func TestPDFDetect(t *testing.T) {
 	pdf, err := os.ReadFile(filepath.Join("test_file","test_file_pdf_1000.pdf"))
 	if err != nil {

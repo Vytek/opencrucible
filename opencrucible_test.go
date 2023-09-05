@@ -145,3 +145,19 @@ func TestPDFDetect(t *testing.T) {
 		t.Errorf("got %q, wanted %q", got, want)
 	}
 }
+
+func TestPPTXDetect(t *testing.T) {
+	pdf, err := os.ReadFile(filepath.Join("test_file","test_file_pptx.pptx"))
+	if err != nil {
+		t.Errorf("error loading file \n %s", err)
+	}
+	got, _, err := DetectFileTypeMIME(pdf)
+	if err != nil {
+		t.Errorf("unable to detect file \n %s", err)
+	}
+	want := "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+	t.Logf("Parsed: %s", got)
+	if got != want {
+		t.Errorf("got %q, wanted %q", got, want)
+	}
+}

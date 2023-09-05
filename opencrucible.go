@@ -132,6 +132,19 @@ func readPdf(path string) (string, error) {
 	return strings.Trim(string(replacedBytes), " "), nil
 }
 
+func PPTXFileParseToString(FileToParse string) (string, error) {
+	// extract text from an PPTX file
+	file, err := os.Open(FileToParse)
+	if err != nil {
+		return "", fmt.Errorf("error opening file: %s", err)
+	}
+
+	defer file.Close()
+	stat, _ := file.Stat()
+	pptx, err := PPTX2Text(file, stat.Size())
+	return pptx, err
+}
+
 //Metadata
 
 //See: https://www.lazy-tech.net/project/pdf_metadata_parsing_golang

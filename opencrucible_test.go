@@ -2,12 +2,12 @@ package opencrucible
 
 import (
 	"os"
-	"testing"
 	"path/filepath"
+	"testing"
 )
 
 func TestTXTParser(t *testing.T) {
-	txt, err := os.ReadFile(filepath.Join("test_file","test_file_txt.txt"))
+	txt, err := os.ReadFile(filepath.Join("test_file", "test_file_txt.txt"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -23,7 +23,7 @@ func TestTXTParser(t *testing.T) {
 }
 
 func TestTXTFileParser(t *testing.T) {
-	got, err := TXTFileParseToString(filepath.Join("test_file","test_file_txt.txt"))
+	got, err := TXTFileParseToString(filepath.Join("test_file", "test_file_txt.txt"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -35,7 +35,7 @@ func TestTXTFileParser(t *testing.T) {
 }
 
 func TestODTParser(t *testing.T) {
-	odt, err := os.ReadFile(filepath.Join("test_file","test_file_odt.odt"))
+	odt, err := os.ReadFile(filepath.Join("test_file", "test_file_odt.odt"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -51,7 +51,7 @@ func TestODTParser(t *testing.T) {
 }
 
 func TestODTFileParser(t *testing.T) {
-	got, err := ODTFileParseToString(filepath.Join("test_file","test_file_odt.odt"))
+	got, err := ODTFileParseToString(filepath.Join("test_file", "test_file_odt.odt"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -63,7 +63,7 @@ func TestODTFileParser(t *testing.T) {
 }
 
 func TestRTFParser(t *testing.T) {
-	rtf, err := os.ReadFile(filepath.Join("test_file","test_file_rtf.rtf"))
+	rtf, err := os.ReadFile(filepath.Join("test_file", "test_file_rtf.rtf"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -79,7 +79,7 @@ func TestRTFParser(t *testing.T) {
 }
 
 func TestRTFFileParser(t *testing.T) {
-	got, err := RTFFileParseToString(filepath.Join("test_file","test_file_rtf.rtf"))
+	got, err := RTFFileParseToString(filepath.Join("test_file", "test_file_rtf.rtf"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -91,7 +91,7 @@ func TestRTFFileParser(t *testing.T) {
 }
 
 func TestDOCXFileParser(t *testing.T) {
-	got, err := DOCXFileParseToString(filepath.Join("test_file","test_file_docx.docx"))
+	got, err := DOCXFileParseToString(filepath.Join("test_file", "test_file_docx.docx"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -103,7 +103,7 @@ func TestDOCXFileParser(t *testing.T) {
 }
 
 func TestDOCXMSFileParser(t *testing.T) {
-	got, err := DOCXFileParseToString(filepath.Join("test_file","test_file_docx_ms.docx"))
+	got, err := DOCXFileParseToString(filepath.Join("test_file", "test_file_docx_ms.docx"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -119,7 +119,7 @@ func TestDOCXMSFileParser(t *testing.T) {
 // Must be 20 NOT 00
 
 func TestPDFFileParser(t *testing.T) {
-	got, err := PDFFileParseToString(filepath.Join("test_file","test_file_pdf.pdf"))
+	got, err := PDFFileParseToString(filepath.Join("test_file", "test_file_pdf.pdf"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -130,8 +130,20 @@ func TestPDFFileParser(t *testing.T) {
 	}
 }
 
+func TestPPTXFileParser(t *testing.T) {
+	got, err := PPTXFileParseToString(filepath.Join("test_file", "test_file_pptx.pptx"))
+	if err != nil {
+		t.Errorf("error loading file \n %s", err)
+	}
+	want := "Slide 1:\nTest\nThis \nis\n a \ntest\n \nfile\n \nto\n \ntest\n \nlibrary"
+	t.Logf("Parsed: %s", got)
+	if got != want {
+		t.Errorf("got %q, wanted %q", got, want)
+	}
+}
+
 func TestPDFMetdata(t *testing.T) {
-	got, err := PDFFileMetadata(filepath.Join("test_file","test_file_pdf.pdf"))
+	got, err := PDFFileMetadata(filepath.Join("test_file", "test_file_pdf.pdf"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -147,7 +159,7 @@ func TestPDFMetdata(t *testing.T) {
 }
 
 func TestPDFDetect(t *testing.T) {
-	pdf, err := os.ReadFile(filepath.Join("test_file","test_file_pdf_1000.pdf"))
+	pdf, err := os.ReadFile(filepath.Join("test_file", "test_file_pdf_1000.pdf"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -163,7 +175,7 @@ func TestPDFDetect(t *testing.T) {
 }
 
 func TestPPTXDetect(t *testing.T) {
-	pdf, err := os.ReadFile(filepath.Join("test_file","test_file_pptx.pptx"))
+	pdf, err := os.ReadFile(filepath.Join("test_file", "test_file_pptx.pptx"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}

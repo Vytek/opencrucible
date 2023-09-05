@@ -16,4 +16,5 @@ require (
 	github.com/h2non/filetype v1.1.3
 	github.com/lu4p/cat v0.1.5
 	golang.org/x/net v0.10.0 // indirect
+	gopkg.in/xmlpath.v2 v2.0.0-20150820204837-860cbeca3ebc
 )

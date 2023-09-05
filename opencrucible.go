@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/Tulip-Data/pdf"
 	"github.com/gabriel-vasile/mimetype"
@@ -122,5 +123,10 @@ func readPdf(path string) (string, error) {
 		return "", err
 	}
 	buf.ReadFrom(b)
-	return buf.String(), nil
+
+	//Fixed issue with horrible patch
+	oldBytes := []byte("�")
+    newBytes := []byte(" ")
+	replacedBytes := bytes.Replace(buf.Bytes(), oldBytes, newBytes, -1)
+	return strings.Trim(string(replacedBytes), " "), nil
 }

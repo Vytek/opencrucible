@@ -62,8 +62,8 @@ func TestODTFileParser(t *testing.T) {
 	}
 }
 
-func TestODTMetadata(t *testing.T) {
-	got, err := ODTFileMetadata(filepath.Join("test_file", "test_file_odt.odt"))
+func TestOpenOfficeMetadata(t *testing.T) {
+	got, err := OpenOfficeFileMetadata(filepath.Join("test_file", "test_file_odt.odt"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)
 	}
@@ -153,6 +153,34 @@ func TestPPTXFileParser(t *testing.T) {
 	t.Logf("Parsed: %s", got)
 	if got != want {
 		t.Errorf("got %q, wanted %q", got, want)
+	}
+}
+
+func TestOfficeMetadata(t *testing.T) {
+	got, err := OfficeFileMetadata(filepath.Join("test_file", "test_file_docx_ms.docx"))
+	if err != nil {
+		t.Errorf("error loading file \n %s", err)
+	}
+	want := "Enrico Speranza"
+	t.Logf("Parsed: %s", got.Title)
+	t.Logf("Parsed: %s", got.Created)
+	t.Logf("Parsed: %s", got.LastModifiedBy)
+	if got.Creator != want {
+		t.Errorf("got %q, wanted %q", got.Creator, want)
+	}
+}
+
+func TestOfficePPTXMetadata(t *testing.T) {
+	got, err := OfficeFileMetadata(filepath.Join("test_file", "test_file_pptx.pptx"))
+	if err != nil {
+		t.Errorf("error loading file \n %s", err)
+	}
+	want := "Presentazione standard di PowerPoint"
+	t.Logf("Parsed: %s", got.Title)
+	t.Logf("Parsed: %s", got.Created)
+	t.Logf("Parsed: %s", got.LastModifiedBy)
+	if got.Title != want {
+		t.Errorf("got %q, wanted %q", got.Title, want)
 	}
 }
 

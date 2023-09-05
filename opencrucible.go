@@ -10,13 +10,14 @@ import (
 	"github.com/Tulip-Data/pdf"
 	"github.com/flotzilla/pdf_parser"
 	"github.com/gabriel-vasile/mimetype"
+	"github.com/gocaio/metagoffice"
 	"github.com/gocaio/metagopenoffice"
 	"github.com/h2non/filetype"
 	"github.com/lu4p/cat"
 )
 
 // Version exposes the current package version.
-const Version = "0.0.5"
+const Version = "0.0.6"
 
 //Detects
 
@@ -155,12 +156,22 @@ func PDFFileMetadata(FileToParse string) (*pdf_parser.PdfInfo, error) {
 }
 
 // See for return: https://stackoverflow.com/questions/50697914/return-nil-for-a-struct-in-go
-func ODTFileMetadata(FileToParse string) (*metagopenoffice.OpenOfficeXML, error) {
+func OpenOfficeFileMetadata(FileToParse string) (*metagopenoffice.OpenOfficeXML, error) {
 	file, err := os.Open(FileToParse)
 	if err != nil {
 		return nil, fmt.Errorf("error opening file: %s", err)
 	}
 	file.Close()
 	content, err := metagopenoffice.GetMetada(file)
+	return &content, err
+}
+
+func OfficeFileMetadata(FileToParse string) (*metagoffice.XMLContent, error) {
+	file, err := os.Open(FileToParse)
+	if err != nil {
+		return nil, fmt.Errorf("error opening file: %s", err)
+	}
+	file.Close()
+	content, err := metagoffice.GetContent(file)
 	return &content, err
 }

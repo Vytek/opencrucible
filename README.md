@@ -13,6 +13,6 @@ List of formats read:
 | TXT | X  | text/plain; charset=utf-8 | |
 | RTF | X | text/rtf | |
 | ODT | X | application/vnd.oasis.opendocument.text | X |
-| DOCX  | X  | application/vnd.openxmlformats-officedocument.wordprocessingml.document | |
-| PPTX | X | application/vnd.openxmlformats-officedocument.presentationml.presentation | |
+| DOCX  | X  | application/vnd.openxmlformats-officedocument.wordprocessingml.document | X |
+| PPTX | X | application/vnd.openxmlformats-officedocument.presentationml.presentation | X |
 | PDF | X | application/pdf | X |

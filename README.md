@@ -13,4 +13,4 @@ List of formats read:
 | RTF | X | text/rtf |
 | ODT | X | application/vnd.oasis.opendocument.text |
 | DOCX  | X  | application/vnd.openxmlformats-officedocument.wordprocessingml.document |
-| PDF | X | application/pdf "
+| PDF | X | application/pdf |

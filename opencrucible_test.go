@@ -62,8 +62,7 @@ func TestODTFileParser(t *testing.T) {
 	}
 }
 
-
-func TestODTMetadata(t *testing.T) { 
+func TestODTMetadata(t *testing.T) {
 	got, err := ODTFileMetadata(filepath.Join("test_file", "test_file_odt.odt"))
 	if err != nil {
 		t.Errorf("error loading file \n %s", err)

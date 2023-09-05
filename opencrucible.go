@@ -8,11 +8,11 @@ import (
 	"strings"
 
 	"github.com/Tulip-Data/pdf"
+	"github.com/flotzilla/pdf_parser"
 	"github.com/gabriel-vasile/mimetype"
+	"github.com/gocaio/metagopenoffice"
 	"github.com/h2non/filetype"
 	"github.com/lu4p/cat"
-	"github.com/flotzilla/pdf_parser"
-	"github.com/gocaio/metagopenoffice"
 )
 
 // Version exposes the current package version.
@@ -118,7 +118,7 @@ func readPdf(path string) (string, error) {
 		return "", err
 	}
 	// remember close file
-    defer f.Close()	
+	defer f.Close()
 	var buf bytes.Buffer
 	b, err := r.GetPlainText()
 	if err != nil {
@@ -128,7 +128,7 @@ func readPdf(path string) (string, error) {
 
 	//Fixed issue with horrible patch
 	oldBytes := []byte("�")
-    newBytes := []byte(" ")
+	newBytes := []byte(" ")
 	replacedBytes := bytes.Replace(buf.Bytes(), oldBytes, newBytes, -1)
 	return strings.Trim(string(replacedBytes), " "), nil
 }
@@ -148,13 +148,13 @@ func PPTXFileParseToString(FileToParse string) (string, error) {
 
 //Metadata
 
-//See: https://www.lazy-tech.net/project/pdf_metadata_parsing_golang
+// See: https://www.lazy-tech.net/project/pdf_metadata_parsing_golang
 func PDFFileMetadata(FileToParse string) (*pdf_parser.PdfInfo, error) {
 	pdf_parsed, errors := pdf_parser.ParsePdf(FileToParse)
 	return pdf_parsed, errors
 }
 
-//See for return: https://stackoverflow.com/questions/50697914/return-nil-for-a-struct-in-go
+// See for return: https://stackoverflow.com/questions/50697914/return-nil-for-a-struct-in-go
 func ODTFileMetadata(FileToParse string) (*metagopenoffice.OpenOfficeXML, error) {
 	file, err := os.Open(FileToParse)
 	if err != nil {

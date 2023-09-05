@@ -130,3 +130,4 @@ func readPdf(path string) (string, error) {
 	replacedBytes := bytes.Replace(buf.Bytes(), oldBytes, newBytes, -1)
 	return strings.Trim(string(replacedBytes), " "), nil
 }
+

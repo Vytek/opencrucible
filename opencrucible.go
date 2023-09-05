@@ -14,10 +14,11 @@ import (
 	"github.com/gocaio/metagopenoffice"
 	"github.com/h2non/filetype"
 	"github.com/lu4p/cat"
+	doctotext "github.com/vytek/doc-to-text"
 )
 
 // Version exposes the current package version.
-const Version = "0.0.6"
+const Version = "0.0.7"
 
 //Detects
 
@@ -145,6 +146,16 @@ func PPTXFileParseToString(FileToParse string) (string, error) {
 	stat, _ := file.Stat()
 	pptx, err := PPTX2Text(file, stat.Size())
 	return pptx, err
+}
+
+func DOCFileParseToString(FileToParse string) (string, error) {
+	file, err := os.Open(FileToParse)
+	if err != nil {
+		return "", fmt.Errorf("error opening file: %s", err)
+	}
+	defer file.Close()
+	doc, err := doctotext.DocToText(file, false)
+	return doc, err
 }
 
 //Metadata

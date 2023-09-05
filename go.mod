@@ -2,12 +2,18 @@ module github.com/vytek/opencrucible
 
 go 1.21.0
 
-require github.com/gabriel-vasile/mimetype v1.4.2
+require (
+	github.com/gabriel-vasile/mimetype v1.4.2
+	github.com/vytek/doc-to-text v0.0.0-20230905185522-d1fc42e42cf5
+)
 
 require (
 	github.com/EndFirstCorp/peekingReader v0.0.0-20171012052444-257fb6f1a1a6 // indirect
+	github.com/richardlehane/mscfb v1.0.4 // indirect
+	github.com/richardlehane/msoleps v1.0.3 // indirect
 	github.com/sirupsen/logrus v1.7.0 // indirect
 	golang.org/x/sys v0.8.0 // indirect
+	golang.org/x/text v0.13.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 )
 

@@ -128,6 +128,18 @@ func TestDOCXMSFileParser(t *testing.T) {
 	}
 }
 
+func TestDOCFileParser(t *testing.T) {
+	got, err := DOCFileParseToString(filepath.Join("test_file", "test_file_doc.doc"))
+	if err != nil {
+		t.Errorf("error loading file \n %s", err)
+	}
+	want := "This is a test file to test library\r"
+	t.Logf("Parsed: %s", got)
+	if got != want {
+		t.Errorf("got %q, wanted %q", got, want)
+	}
+}
+
 // This�is�a�test�file�to�test�library
 // 54 68 69 73 00 69 73 00 61 00 74 65 73 74 00 66 69 6C 65 00 74 6F 00 74 65 73 74 00 6C 69 62 72 61 72 79 20
 // Must be 20 NOT 00
@@ -226,6 +238,22 @@ func TestPPTXDetect(t *testing.T) {
 		t.Errorf("unable to detect file \n %s", err)
 	}
 	want := "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+	t.Logf("Parsed: %s", got)
+	if got != want {
+		t.Errorf("got %q, wanted %q", got, want)
+	}
+}
+
+func TestDOCDetect(t *testing.T) {
+	pdf, err := os.ReadFile(filepath.Join("test_file", "test_file_doc.doc"))
+	if err != nil {
+		t.Errorf("error loading file \n %s", err)
+	}
+	got, _, err := DetectFileTypeMIME(pdf)
+	if err != nil {
+		t.Errorf("unable to detect file \n %s", err)
+	}
+	want := "application/x-ole-storage"
 	t.Logf("Parsed: %s", got)
 	if got != want {
 		t.Errorf("got %q, wanted %q", got, want)

@@ -62,6 +62,21 @@ func TestODTFileParser(t *testing.T) {
 	}
 }
 
+
+func TestODTMetadata(t *testing.T) { 
+	got, err := ODTFileMetadata(filepath.Join("test_file", "test_file_odt.odt"))
+	if err != nil {
+		t.Errorf("error loading file \n %s", err)
+	}
+	want := "LibreOffice/7.0.5.2$Windows_X86_64 LibreOffice_project/64390860c6cd0aca4beafafcfd84613dd9dfb63a"
+	t.Logf("Parsed: %s", got.Meta.Generator)
+	t.Logf("Parsed: %s", got.Meta.Title)
+	t.Logf("Parsed: %s", got.Meta.CreationDate)
+	if got.Meta.Generator != want {
+		t.Errorf("got %q, wanted %q", got.Meta.Generator, want)
+	}
+}
+
 func TestRTFParser(t *testing.T) {
 	rtf, err := os.ReadFile(filepath.Join("test_file", "test_file_rtf.rtf"))
 	if err != nil {

@@ -13,6 +13,7 @@ require (
 require (
 	github.com/Tulip-Data/pdf v1.0.2
 	github.com/flotzilla/pdf_parser v0.1.96
+	github.com/gocaio/metagopenoffice v0.0.0-20190424182207-bbc961c10caf
 	github.com/h2non/filetype v1.1.3
 	github.com/lu4p/cat v0.1.5
 	golang.org/x/net v0.10.0 // indirect

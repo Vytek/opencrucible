@@ -12,6 +12,7 @@ import (
 	"github.com/h2non/filetype"
 	"github.com/lu4p/cat"
 	"github.com/flotzilla/pdf_parser"
+	"github.com/gocaio/metagopenoffice"
 )
 
 // Version exposes the current package version.
@@ -151,4 +152,15 @@ func PPTXFileParseToString(FileToParse string) (string, error) {
 func PDFFileMetadata(FileToParse string) (*pdf_parser.PdfInfo, error) {
 	pdf_parsed, errors := pdf_parser.ParsePdf(FileToParse)
 	return pdf_parsed, errors
+}
+
+//See for return: https://stackoverflow.com/questions/50697914/return-nil-for-a-struct-in-go
+func ODTFileMetadata(FileToParse string) (*metagopenoffice.OpenOfficeXML, error) {
+	file, err := os.Open(FileToParse)
+	if err != nil {
+		return nil, fmt.Errorf("error opening file: %s", err)
+	}
+	file.Close()
+	content, err := metagopenoffice.GetMetada(file)
+	return &content, err
 }
